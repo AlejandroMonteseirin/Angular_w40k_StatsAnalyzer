@@ -1,0 +1,17 @@
+<p-card header="Weapon Comparer">
+    <p class="m-0">
+        The most complete weapon comparator in the Warhammer 40,000 universe.<br>
+        <b>Updated to 10th edition</b>
+    </p>
+
+    <h2>Weapons</h2>
+    <span *ngFor="let weapon of weapons; index as i;">
+        <app-weapon [data]="weapon"></app-weapon>
+    </span>
+    <p-button label="Calculate" (click)="calculate()"></p-button>
+
+</p-card>
+
+
+
+
