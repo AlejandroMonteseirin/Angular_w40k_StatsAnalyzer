@@ -2,10 +2,12 @@
 AngularWarhammer40kStatsAnalyzer is an ongoing project built with Angular 16 that aims to provide statistical analysis for the popular tabletop game Warhammer 40k. The tool offers a modern and responsive user interface, allowing users to explore and visualize detailed data on units, factions, and strategies.
 
 ## Features
--Analyze statistics for Warhammer 40k units
--Visualize faction performance and trends
--Explore strategies and tactical insights
--Modular and scalable code structure for further development
+- Weapon comparator and calculator.
+### Features Roadmap
+- Analyze statistics for Warhammer 40k units
+- Visualize faction performance and trends
+- Explore strategies and tactical insights
+- Modular and scalable code structure for further development
 ## Installation
 1. Clone the repository: git clone https://github.com/your-username/AngularWarhammer40kStatsAnalyzer.git
 2. Navigate to the project directory: cd AngularWarhammer40kStatsAnalyzer
