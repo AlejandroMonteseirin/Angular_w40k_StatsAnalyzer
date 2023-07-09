@@ -1,7 +1,38 @@
 <p-card class="weaponCard">
-    <span class="p-float-label">
+    <div class="p-float-label">
         <input id="name" type="text" pInputText [(ngModel)]="data.name" />
         <label htmlFor="name">Name</label>
-    </span>
+    </div>
+    <br />
+    <div class="p-float-label">
+        <input id="attacks" type="text" pInputText [(ngModel)]="data.attacks" />
+        <label htmlFor="attacks">attacks</label>
+    </div>
+    <br />
+    <div class="p-float-label">
+        <input id="BS" type="number" pInputText [(ngModel)]="data.BS" />
+        <label htmlFor="BS">BS</label>
+    </div>
+    <br />
+    <div class="p-float-label">
+        <input id="S" type="number" pInputText [(ngModel)]="data.S" />
+        <label htmlFor="S">S</label>
+    </div>
+    <br />
+    <div class="p-float-label">
+        <input id="AP" type="number" pInputText [(ngModel)]="data.AP" />
+        <label htmlFor="AP">AP</label>
+    </div>
+    <br />
+
+    <div class="p-float-label">
+        <input id="name" type="string" pInputText [(ngModel)]="data.D" />
+        <label htmlFor="D">D</label>
+    </div>
+    <div *ngIf="data.result!=''">
+        <div>Results: </div>
+        <p style="white-space: pre">
+            {{data.result}}</p>
+    </div>
 
 </p-card>
