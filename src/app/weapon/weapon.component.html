@@ -1,38 +1,43 @@
 <p-card class="weaponCard">
     <div class="p-float-label">
         <input id="name" type="text" pInputText [(ngModel)]="data.name" />
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name"><i class="pi pi-user"></i> Name</label>
     </div>
     <br />
     <div class="p-float-label">
         <input id="attacks" type="text" pInputText [(ngModel)]="data.attacks" />
-        <label htmlFor="attacks">attacks</label>
+        <label htmlFor="attacks"><i class="pi pi-bolt"></i> Attacks (A)</label>
     </div>
     <br />
     <div class="p-float-label">
         <input id="BS" type="number" pInputText [(ngModel)]="data.BS" />
-        <label htmlFor="BS">BS</label>
+        <label htmlFor="BS"><i class="pi pi-chart-bar"></i> Balistic Skill (BS)</label>
     </div>
     <br />
     <div class="p-float-label">
         <input id="S" type="number" pInputText [(ngModel)]="data.S" />
-        <label htmlFor="S">S</label>
+        <label htmlFor="S"><i class="pi pi-shield"></i> Strenght (S)</label>
     </div>
     <br />
     <div class="p-float-label">
         <input id="AP" type="number" pInputText [(ngModel)]="data.AP" />
-        <label htmlFor="AP">AP</label>
+        <label htmlFor="AP"><i class="pi pi-minus"></i> Armor Penetration (AP)</label>
     </div>
     <br />
 
     <div class="p-float-label">
         <input id="name" type="string" pInputText [(ngModel)]="data.D" />
-        <label htmlFor="D">D</label>
+        <label htmlFor="D"><i class="pi pi-star"></i> Damage (D)</label>
     </div>
+    <div style="font-weight: bolder;">
+        <div *ngFor="let special of data.special">
+            <i class="pi pi-check"></i> Special Rule: {{special}}
+        </div>
+    </div>
+    <br>
     <div *ngIf="data.result!=''">
-        <div>Results: </div>
+        <div><i class="pi pi-info-circle"></i> Results:</div>
         <p style="white-space: pre">
             {{data.result}}</p>
     </div>
-
 </p-card>

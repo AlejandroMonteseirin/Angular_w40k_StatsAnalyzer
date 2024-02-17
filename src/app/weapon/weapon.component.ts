@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'; 
+import { Component, Input, SimpleChanges } from '@angular/core'; 
 
 @Component({
   selector: 'app-weapon',
@@ -9,5 +9,4 @@ import { Component, Input } from '@angular/core';
 
 export class WeaponComponent {
   @Input() data: any;
-
 }

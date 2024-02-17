@@ -1,16 +1,101 @@
 <p-card header="Weapon Comparer">
     <p class="m-0">
-        The most complete weapon comparator in the Warhammer 40,000 universe.<br>
+        The most complete weapon comparator in the Warhammer 40,000 universe. made by Alexmp00<br>
         <b>Updated to 10th edition</b>
     </p>
+    <!-- Enemy editor { "T": 10, "W": 12, "Save": 2, "Invuln": 0, "feelnopain": 0, "name": "BALLISTUS DREADNOUGHT" };-->
+    <p-card>
+        <h2>Edit Enemy</h2>
+        <div class="p-grid">
+            <div class="p-col-12">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i> 
+                    </span>
+                    <label for="name" class="labelname">Name</label>
+                    <input type="text" pInputText [(ngModel)]="this.enemy.name" id="name" style="width: 100%" />
+                </div>
+            </div>
+            <div class="p-col-12">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-shield"></i>
+                    </span>
+                    <label for="toughness" class="labelname">Toughness</label>
+                    <input type="number" pInputText [(ngModel)]="this.enemy.T" id="toughness" style="width: 100%" />
+                </div>
+            </div>
+            <div class="p-col-12">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-heart"></i>
+                    </span>
+                    <label for="wounds" class="labelname">Wounds</label>
+                    <input type="number" pInputText [(ngModel)]="this.enemy.W" id="wounds" style="width: 100%" />
+                </div>
+            </div>
+            <div class="p-col-12">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-lock"></i>
+                    </span>
+                    <label for="save" class="labelname">Save</label>
+                    <input type="number" pInputText [(ngModel)]="this.enemy.Save" id="save" style="width: 100%" />
+                </div>
+            </div>
+            <div class="p-col-12">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-shield"></i>
+                    </span>
+                    <label for="invuln" class="labelname">Invulnerable Save</label>
+                    <input type="number" pInputText [(ngModel)]="this.enemy.Invuln" id="invuln" style="width: 100%" />
+                </div>
+            </div>
+            <div class="p-col-12">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-heart"></i>
+                    </span>
+                    <label for="feelnopain" class="labelname">Feel No Pain</label>
+                    <input type="number" pInputText [(ngModel)]="this.enemy.feelnopain" id="feelnopain" style="width: 100%" />
+                </div>
+            </div>
+        </div>
+    </p-card>
+
+
+    <div class="p-float-label" style="margin-top: 2em;">
+        <input id="numberofweapons" type="number" pInputText [(ngModel)]="numberOfWeapons" />
+        <label htmlFor="numberofweapons">Number of weapons</label>
+    </div>
 
     <h2>Weapons</h2>
-    <span *ngFor="let weapon of weapons; index as i;">
-        <app-weapon [data]="weapon"></app-weapon>
-    </span>
-    <p-button label="Calculate" (click)="calculate()"></p-button>
+    <div *ngFor="let weapon of weapons; index as i;">
+        <div class="grid">
+            <app-weapon class="col-2" [data]="weapon"></app-weapon>
+            <div class="col-2 dices" [id]="'hitroll-'+i"></div>
+            <div class="col-2 dices" [id]="'woundroll-'+i"></div>
+            <div class="col-2 dices" [id]="'saveroll-'+i"></div>
+            <div class="col-2 dices" [id]="'feelnopain-'+i"></div>
+            <div class="col-2" [id]="'result-'+i"></div>
+        </div>
+        
+        <div class="grid" style="margin-top: 2em;" >
+            <div class="col-2 info">Weapon stats</div>
+            <div class="col-2 info">Hitroll</div>
+            <div class="col-2 info">Woundroll</div>
+            <div class="col-2 info">Saves</div>
+            <div class="col-2 info">Feel no pain</div>
+        </div>
+        
+        <div class="separator"></div>
 
+    </div>
+    <p-button label="Calculate" (click)="calculate()"></p-button>
+    
 </p-card>
+
 
 
 

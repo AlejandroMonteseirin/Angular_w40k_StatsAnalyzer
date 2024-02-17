@@ -1,0 +1,67 @@
+.dices {
+    background-image: url('public/assets/madera.jpg');
+    background-size: cover;
+    display: flex;
+    border-color: slategray;
+    border-style: ridge;
+    border-width: 0.3em;
+}
+
+.dices canvas {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.info {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: large;
+}
+
+.labelname {
+    font-size: x-large;
+    font-weight: bolder;
+    width: 10em;
+    vertical-align: middle; /* Vertically align text */
+    background-color: whitesmoke;
+    border-width: 0.01em;
+    border-style: dashed;
+    padding: 0.5em;
+}
+
+.separator {
+    height: 2px;
+    background-color: #ccc;
+    margin: 40px 0;
+    position: relative;
+}
+
+.separator::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+.separator::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
