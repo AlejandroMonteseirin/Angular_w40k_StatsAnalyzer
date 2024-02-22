@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/w40k-weapon-comparer",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

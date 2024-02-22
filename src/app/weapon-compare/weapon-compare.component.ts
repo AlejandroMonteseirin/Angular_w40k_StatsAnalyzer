@@ -14,7 +14,7 @@ export class WeaponCompareComponent {
   constructor(private elementRef: ElementRef) {}
 
   numberOfWeapons = 9;
-  weapons = [{ "name": "Cyclic Ion Overcharge", "attacks": 3, "BS": 4, "S": 8, "AP": 2, "D": "2", "result": "", "special": ["hazardous"], "lanzarDados": false },
+  weapons = [{ "name": "Cyclic Ion Overcharge", "attacks": 3, "BS": 4, "S": 8, "AP": 2, "D": "2", "result": "", "special": ["hazardous"] },
   { "name": "Cyclic Ion normal", "attacks": 3, "BS": 4, "S": 7, "AP": 1, "D": "1", "result": "", "special": [] }]
   //{ "name": "Misille pod", "attacks": 2, "BS": 4, "S": 7, "AP": 1, "D": "2", "result": "", "special": ["reroll 1"] },
   //{ "name": "Plasma Rifle", "attacks": 1, "BS": 4, "S": 8, "AP": 3, "D": "3", "result": "", "special": ["reroll 1"] },
