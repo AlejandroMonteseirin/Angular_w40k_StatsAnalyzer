@@ -13,9 +13,9 @@ export class WeaponCompareComponent {
 
   constructor(private elementRef: ElementRef) {}
 
-  numberOfWeapons = 9;
-  weapons = [{ "name": "Cyclic Ion Overcharge", "attacks": 3, "BS": 4, "S": 8, "AP": 2, "D": "2", "result": "", "special": ["hazardous"] },
-  { "name": "Cyclic Ion normal", "attacks": 3, "BS": 4, "S": 7, "AP": 1, "D": "1", "result": "", "special": [] }]
+  numberOfWeapons = 1;
+  weapons = [{ "name": "Crisis Suit: Cyclic Ion Overcharge", "attacks": 3, "BS": 4, "S": 8, "AP": 2, "D": "2", "result": "", "special": ["hazardous"] },
+  { "name": "Crisis Suit: Cyclic Ion Regular", "attacks": 3, "BS": 4, "S": 7, "AP": 1, "D": "1", "result": "", "special": [] }]
   //{ "name": "Misille pod", "attacks": 2, "BS": 4, "S": 7, "AP": 1, "D": "2", "result": "", "special": ["reroll 1"] },
   //{ "name": "Plasma Rifle", "attacks": 1, "BS": 4, "S": 8, "AP": 3, "D": "3", "result": "", "special": ["reroll 1"] },
   //{ "name": "Fusion Blaster", "attacks": 1, "BS": 4, "S": 8, "AP": 4, "D": "D6+2", "result": "", "special": ["reroll 1"] }];
@@ -39,6 +39,13 @@ export class WeaponCompareComponent {
 
 
   calculate() {
+
+    // reset dices
+    const divs = document.querySelectorAll('div.dices');
+    divs.forEach(div => {
+        div.innerHTML = '';
+    });
+
     for (let index = 0; index < this.weapons.length; index++) {
       const arma = this.weapons[index];
       const rollObservable = this.createRollObservable('#hitroll-' + index, arma.attacks*this.numberOfWeapons);
@@ -98,6 +105,10 @@ export class WeaponCompareComponent {
   woundroll(result,index,arma){
     const dices= this.calculateDices(result,arma.BS);
     if (dices==0){
+      const div = document.querySelector('#woundroll-' + index);
+      if (div instanceof HTMLDivElement) {
+        div.style.borderColor = 'red'; // Cambiar el color a rojo, puedes ajustarlo según lo necesites
+      }
       return;
     }
     const rollObservable = this.createRollObservable('#woundroll-' + index, dices);
@@ -151,7 +162,11 @@ export class WeaponCompareComponent {
 
   showResults(result,index,arma){
 
-    const dices= this.calculateDices(result,this.enemy.Save+arma.AP);
+    let saveNeeded= this.enemy.Save+arma.AP;
+    if (this.enemy.Invuln !=0 && (this.enemy.Save+arma.AP) > this.enemy.Invuln){
+        saveNeeded= this.enemy.Invuln;
+      }
+    const dices= this.calculateDices(result,saveNeeded,true);
 
     let text=this.elementRef.nativeElement.querySelector('#result-' + index);
 
@@ -282,4 +297,12 @@ export class WeaponCompareComponent {
   
   }*/
 
+
+  // remove weapon from the list
+  removeWeapon(weapon){
+    this.weapons = this.weapons.filter( item => item !== weapon );
+  }
+  addWeapon(){
+    this.weapons.unshift({ "name": "New Weapon", "attacks": 1, "BS": 4, "S": 8, "AP": 2, "D": "2", "result": "", "special": [] });
+  }
 }

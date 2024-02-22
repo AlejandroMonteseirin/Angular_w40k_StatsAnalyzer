@@ -1,6 +1,6 @@
 <p-card header="Weapon Comparer">
     <p class="m-0">
-        The most complete weapon comparator in the Warhammer 40,000 universe. made by Alexmp00<br>
+        The most complete weapon comparator in the Warhammer 40,000 universe. With the option to simulate dice physics<br>
         <b>Updated to 10th edition</b>
     </p>
     <!-- Enemy editor { "T": 10, "W": 12, "Save": 2, "Invuln": 0, "feelnopain": 0, "name": "BALLISTUS DREADNOUGHT" };-->
@@ -69,16 +69,25 @@
         <input id="numberofweapons" type="number" pInputText [(ngModel)]="numberOfWeapons" />
         <label htmlFor="numberofweapons">Number of weapons</label>
     </div>
+   
+
 
     <h2>Weapons</h2>
+    <div style="margin-top: 15px;" >
+        <button pButton label="Add weapon" icon="pi pi-plus-circle" iconPos="right" (onClick)="addWeapon()"></button>
+    </div>
     <div *ngFor="let weapon of weapons; index as i;">
-        <div class="grid">
-            <app-weapon class="col-2" [data]="weapon"></app-weapon>
-            <div class="col-2 dices" [id]="'hitroll-'+i"></div>
-            <div class="col-2 dices" [id]="'woundroll-'+i"></div>
-            <div class="col-2 dices" [id]="'saveroll-'+i"></div>
-            <div class="col-2 dices" [id]="'feelnopain-'+i"></div>
-            <div class="col-2" [id]="'result-'+i"></div>
+        <div style="margin-left: 10%;margin:3%">
+            <h1 >{{weapon.name}}:</h1> 
+            <div><button pButton label="Remove" class="p-button-danger" icon="pi pi-trash" iconPos="right" (onClick)="removeWeapon(weapon)"></button></div>
+        </div>
+        <div class="grid" >
+            <app-weapon class="col-12 lg:col-2" [data]="weapon"></app-weapon>             
+            <div class="col-12 lg:col-2 dices" [id]="'hitroll-'+i"></div>
+            <div class="col-12 lg:col-2 dices" [id]="'woundroll-'+i"></div>
+            <div class="col-12 lg:col-2 dices" [id]="'saveroll-'+i"></div>
+            <div class="col-12 lg:col-2 dices" [id]="'feelnopain-'+i"></div>
+            <div class="col-12 lg:col-2" [id]="'result-'+i"></div>
         </div>
         
         <div class="grid" style="margin-top: 2em;" >
@@ -92,8 +101,9 @@
         <div class="separator"></div>
 
     </div>
-    <p-button label="Calculate" (click)="calculate()"></p-button>
-    
+    <div style="margin: 5%;text-align: center;">
+        <button pButton type="button" icon="pi pi-calculator" style="font-size: x-large; font-weight: bolder;" label="Calculate" class="p-button-success" (click)="calculate()"></button>
+    </div>
 </p-card>
 
 

@@ -6,12 +6,18 @@
     border-style: ridge;
     border-width: 0.3em;
 }
+@media (max-width: 1000px) {
+    .hideOnSmallScreen {
+      display: none; /* Ocultar el elemento cuando la pantalla es más pequeña que 1500px */
+    }
+  }
 
-.dices canvas {
-    height: 100%;
-    width: 100%;
-    display: block;
-}
+  @media (min-width: 1000px) {
+    .showOnSmallScreen {
+      display: none; /* Ocultar el elemento cuando la pantalla es más pequeña que 1500px */
+    }
+  }
+
 
 .info {
     padding: 10px;
